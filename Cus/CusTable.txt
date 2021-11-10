@@ -1,0 +1,29 @@
+Create table customer (
+    customerid int NOT NULL,
+    customername varchar(250) NOT NULL,
+    customerphonenumber varchar(12) NOT NULL,
+    customerusername varchar(270) NOT NULL,
+    customerpassword varchar(280),
+    customeremail varchar(80),
+    PRIMARY KEY (customerId),
+    UNIQUE(customerphonenumber,customerusername)
+);
+----------------------------------------------------
+create table menu (
+menuid int,
+menuitem varchar(260),
+menuprice decimal(9,2),
+menuspeciality varchar(280),
+PRIMARY KEY (menuid)
+);
+-------------------------------------
+Create table vendor (
+    vendorid int,
+    vendorname varchar(250),
+    vendorphonenumber varchar(12),
+    vendorusername varchar(270),
+    vendorpassword varchar(280),
+    vendoremail varchar(80),
+PRIMARY KEY (vendorid),
+UNIQUE(vendorphonenumber,vendorusername)
+    );
