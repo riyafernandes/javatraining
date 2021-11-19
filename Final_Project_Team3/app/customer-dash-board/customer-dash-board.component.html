@@ -1,0 +1,37 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="navbar"><a class="active" href="#"><i class="fa fa-fw fa-home"></i></a></div>
+<h1 id="headline">Customer Dashboard</h1>
+
+<span id="wrapper">
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['Customer']}}]" class="button two"> Customer Details</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerSearch']}}]" class="button two"> Customer Search</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerInfo']}}]" class="button two"> Customer Info</a> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerOrders']}}]" class="button two"> Customer Orders</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerPendingOrders']}}]" class="button two"> Customer Pending Orders</a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<br><br>
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerWallets']}}]" class="button two"> Customers Wallets</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['PlaceOrder']}}]" class="button two"> Place Order</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!-- <a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['AddCustomer']}}]" class="button two"> Add Customer</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['ShowMenu']}}]" class="button two">Show Menu</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerOneWallets']}}]" class="button two"> Customer Wallet</a> 
+</span>
+<router-outlet name="Rllproject"></router-outlet>

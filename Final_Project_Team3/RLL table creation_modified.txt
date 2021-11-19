@@ -1,0 +1,140 @@
+Create table customer (
+    customerId int NOT NULL,
+    customername varchar2(50) NOT NULL,
+    customerphonenumber varchar2(10) NOT NULL,
+    customerusername varchar2(20) NOT NULL,
+    customerpassword varchar2(40),
+    customeremail varchar2(80),
+    constraint pk_cid PRIMARY KEY (customerId),
+    constraint uk_cn UNIQUE(customerphonenumber,customerusername)
+);
+
+insert into customer values('1','sai','8181918173','sai','sai','saibhavani777@gmail.com');
+insert into customer values('2','jyothsna','8181918174','jyothsna','jyothsna','mandalajyothsna@gmail.com');
+insert into customer values('3','ganesh','8181918175','ganesh','ganesh','ganeshi@gmail.com');
+insert into customer values('4','darshan','8181918176','darshan','darshan','darshan@gmail.com');
+insert into customer values('5','ashwin','8181918177','ashwin','ashwin','ashwin@gmail.com');
+insert into customer values('6','riya','8181918178','riya','riya','riya@gmail.com');
+insert into customer values('7','sakshi','8181918179','sakshi','sakshi','sakshi@gmail.com');
+insert into customer values('8','hardik','8181918180','hardik','hardik','hardik@gmail.com');
+insert into customer values('9','adrash','8181918181','adarsh','adrash','adarsh@gmail.com');
+-----------------------------------------------------------------------------------------------------------------
+ 
+create table menu (
+menuid int,
+menuitem varchar2(60),
+menuprice decimal(9,2),
+menuspeciality varchar2(40),
+PRIMARY KEY (menuid)
+);
+
+insert into menu values('01' ,'chicken biryani','800.00','nonveg');
+insert into menu values('02' ,'panner tikka biryani','400.00','veg');
+insert into menu values('03' ,'roti', '10.00','veg');
+insert into menu values('04' ,'chicken 65','600.00','nonveg');
+insert into menu values('05' ,'panner butter masala','400.00','veg');
+insert into menu values('06' ,'gobi 65','250.00','veg');
+insert into menu values('07' ,'chicken noodles','300.00','nonveg');
+insert into menu values('08' ,'veg fride rice','200.00','veg');
+insert into menu values('09' ,'shawarma','400.00','nonveg');
+-----------------------------------------------------------------------------------------------------
+
+create table orders(
+orderid int,
+customerid int,
+vendorid int,
+menuid int,
+walletsource varchar(30),
+orderquantity int,
+orderbillamount int,
+orderstatus varchar(20) default 'PENDING' CONSTRAINT orders_orderstatus_chk CHECK  ( upper(orderstatus) in ('ACCEPTED','DENIED','PENDING') ),
+odercommands varchar(250),
+orderdate date,
+constraint pk_orders primary key (orderid),
+FOREIGN KEY (customerId) REFERENCES customer(customerId),
+FOREIGN KEY (vendorid) REFERENCES vendor(vendorid),
+FOREIGN KEY (menuid) REFERENCES menu(menuid)
+);
+
+insert into orders values('011','01','02','03','paytm','2','2000','accepted','make it fast','14-NOV-21');
+insert into orders values('012','02','03', '04','PAYTM','3', '1500''denied','make it spicy','14-NOV-21');
+insert into orders values('013','03','04', '05 ', 'Debitcard', '4','2700','accepted','make it fast','14-NOV-21');
+insert into orders values('014','04','05','06','paytm','1', '600','accepted','contactless delivery','15-NOV-21');
+insert into orders values('015','05','06','07','Debitcard','7', '4500','accepted','make it spicy','15-NOV-21' );
+insert into orders values('016','06','07','07','Debitcard','1', '4500','accepted','make it spicy','15-NOV-21' );
+insert into orders values('020','01','03','03','paytm','4','4000','denied','make it fast','16-NOV-21');
+insert into orders values('021','02','04', '05','paytm','3', '2500','accepted','no oil required','16-NOV-21');
+insert into orders values('022','02','03', '06','paytm','6', '4500','pending','less sugar','17-NOV-21');
+insert into orders values('023','03','04', '06 ', 'paytm', '1','600','pending','make it quick','17-NOV-21');
+insert into orders values('024','03','05', '07 ', 'paytm', '2','900','denied','make it less spicy','18-NOV-21');
+insert into orders values('025','04','03','02','paytm','1', '600','pending','contactless delivery','18-NOV-21');
+insert into orders values('026','04','06','04','paytm','3', '1800','denied','use less oil','19-NOV-21');
+insert into orders values('027','05','07','06','paytm','2', '1200','pending','dont ring the bell','19-NOV-21');
+insert into orders values('028','05','03','04','paytm','1', '600','denied','contactless delivery','19-NOV-21');
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+Create table vendor (
+    vendorId int,
+    vendorname varchar(250),
+    vendorphonenumber varchar(12),
+    vendorusername varchar(270),
+    vendorpassword varchar(280),
+    vendoremail varchar(80),
+PRIMARY KEY (vendorId),
+UNIQUE(vendorphonenumber,vendorusername)
+    );
+insert into vendor values('1','sai','8181918173','sai','sai','saibhavani@gmail.com');
+insert into vendor values('2','jyothsna','8181918174','jyothsna','jyothsna','mandalajyothsna@gmail.com');
+insert into vendor values('3','ganesh','8181918175','ganesh','ganesh','ganeshi@gmail.com');
+insert into vendor values('4','darshan','8181918176','darshan','darshan','darshan@gmail.com');
+insert into vendor values('5','ashwin','8181918177','ashwin','ashwin','ashwin@gmail.com');
+insert into vendor values('6','riya','8181918178','riya','riya','riya@gmail.com');
+insert into vendor values('7','sakshi','8181918179','sakshi','sakshi','sakshi@gmail.com');
+insert into vendor values('8','hardik','8181918180','hardik','hardik','hardik@gmail.com');
+insert into vendor values('9','adarsh','8181918181','adarsh','adarsh','adarsh@gmail.com');
+insert into vendor values('10','swiggy','8181918173','swiggy','swiggy','swiggy@gmail.com');
+insert into vendor values('11','zomato','8181918174','zomato','zomato','zomato@gmail.com');
+insert into vendor values('12','A2b','8181918175','A2b','A2b','A2b@gmail.com');
+insert into vendor values('13','paradise','paradise','paradise','paradise','paradise@gmail.com');
+insert into vendor values('14','hoteltaj','8181918177','hoteltaj','hoteltaj','hoteltaj@gmail.com');
+insert into vendor values('15','minerva','8181918178','minerva','minerva','minerva@gmail.com');
+insert into vendor values('16','vanam','8181918179','vanam','vanam','vanam@gmail.com');
+insert into vendor values('17','rkri','rkri','rkri','rkri','rkri@gmail.com');
+insert into vendor values('18','celebrations','8181918181','celebrations','celebrations','celebrations@gmail.com');
+------------------------------------------------------------------------------------------------------
+create table wallet (
+customerid int,
+walletid int,
+walletamt int NOT NULL,
+walletsource varchar(10) default 'DEBITCARD' CONSTRAINT wallet_walletsource_chk CHECK  ( upper(walletsource) in ('PAYTM','CREDITCARD','DEBITCARD') ),
+constraint pk_wallet primary key(walletid),
+constraint uk_customerid UNIQUE (customerid, walletsource)
+);
+insert into wallet values ('1','1','4215','Paytm');
+insert into wallet values ('2','2','9868','PAYTM');
+insert into wallet values ('3','3','10023','Paytm');
+insert into wallet values ('4','4','29399','Debitcard');
+insert into wallet values ('5','5','28383','Debitcard');
+insert into wallet values ('6','6','8373','PAYTM');
+insert into wallet values ('4','7','29000','Paytm');
+insert into wallet values ('1','8','5600','Debitcard');
+insert into wallet values ('4','9','25555','CREDITCARD');
+insert into wallet values ('7','10','83473','PAYTM');
+insert into wallet values ('8','11','83734','CREDITCARD');
+
+
+
+
+
+
+

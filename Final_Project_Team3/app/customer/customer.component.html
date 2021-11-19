@@ -1,0 +1,25 @@
+
+
+
+<br>
+<br>
+
+<div class="container">
+    
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">Customer Id</div>
+        <div class="col col-2">Customer Name</div>
+        <div class="col col-3">Phone Number</div>
+        <div class="col col-4">Username</div>
+        <div class="col col-5">Email</div>
+      </li>
+      <li class="table-row"  *ngFor="let u of customers | async">
+        <div class="col col-1" data-label="Customer Id">{{u.customerid}}</div>
+        <div class="col col-2" data-label="Customer Name">{{u.customername}}</div>
+        <div class="col col-3" data-label="Phone Number">{{u.customerphonenumber}}</div>
+        <div class="col col-4" data-label="Username">{{u.customerusername}}</div>
+        <div class="col col-5" data-label="Email">{{u.customeremail}}</div>
+      </li>
+      </ul>
+      </div>

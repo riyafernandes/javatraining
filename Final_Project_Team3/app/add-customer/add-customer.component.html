@@ -1,0 +1,43 @@
+<br>
+<br>
+  <div class="container">
+    <div class="title">Customer Sign Up</div>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" [(ngModel)]="customers.customername" name="customername" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username"  [(ngModel)]="customers.customerusername" name="customerusername" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" [(ngModel)]="customers.customeremail" name="customeremail" placeholder="Enter your email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" [(ngModel)]="customers.customerphonenumber" name="customerphonenumber" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password" [(ngModel)]="customers.customerpassword" name="customerpassword" required>
+          </div>
+        </div>
+        <div class="button">
+            <input type="button" value="AddCustomer" (click)="addCustomer()" id="create-account"/>   
+               </div>
+            <div class="button">
+              <input type="reset" class="reset" value="Reset" id="create-account"/>
+            </div>
+      </form>
+
+     <p style="color: red;">Already a user? <a [routerLink]="['/CustomerLogin']" class="button two">Log in</a> </p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+    </div>
+  </div>
+
+{{msg}}

@@ -1,0 +1,29 @@
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+<h1 id="headline">Vendor Login</h1>
+
+ <div class="main">
+  <p class="sign" align="center">Login</p>
+
+    <form #vendorloginForm="ngForm" class="form1" (ngSubmit)="vendorlogin(vendorloginForm)">
+    <input type="text" name="username" placeholder="UserName" class="un" [(ngModel)]="vusername" required="required"><br>
+    <input type="password" name="password" placeholder="Password" class="pass" [(ngModel)]="vpassword" required="required"><br>
+    <input type="submit" class="submit"  value="login"/><br><br>
+    <input type="reset" class="reset" value="reset"/>
+    <hr/>
+    <p style="font-family: cursive;">Don't have an account? <a [routerLink]="['/AddVendor']" style="color: rgb(158, 45, 45);"> Create  one</a></p>
+
+     <div *ngIf="vendorloginForm.submitted && isFormSubmitted==false"> 
+        <p style="color:rgb(190, 31, 31)">
+            Please Enter UserName and Password
+           </p>
+         </div>
+
+    </form>
+    </div>

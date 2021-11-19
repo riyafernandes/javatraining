@@ -1,0 +1,33 @@
+
+<br>
+<br>
+
+<div class="container">
+    
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">Vendor Id</div>
+        <div class="col col-2">Customer Name</div>
+        <div class="col col-3">Phone Number</div>
+        <div class="col col-4">Email</div>
+      </li>
+      <li class="table-row"  >
+        <div class="col col-1" data-label="Vendor Id"> {{(vendor | async)?.vendorid}}</div>
+        <div class="col col-2" data-label="Vendor Name">{{(vendor | async)?.vendorname}}</div>
+        <div class="col col-3" data-label="Phone Number">{{(vendor | async)?.vendorphonenumber}}</div>
+        <div class="col col-4" data-label="Email">{{(vendor | async)?.vendoremail}}</div>
+        
+
+      </li>
+      </ul>
+      </div>
+      <br>
+        <br>
+        <div class="wrap">
+            <div class="search">
+        
+        <input type="text" name="uid" [(ngModel)]="uid" class="searchTerm" placeholder="Enter user Id" /> 
+        <br/><br/>
+        <input type="button" value="Search" (click)="search()" class="searchButton"/>
+        <br/><br/>
+            </div></div>
